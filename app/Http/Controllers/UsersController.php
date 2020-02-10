@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Users;
 use App\Skill;
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
@@ -20,6 +19,13 @@ class UsersController extends Controller
     'users' => $users, 
     ]);
 
+  }
+  public function afficher_users()
+  {
+    $users_admin = User::all();
+    return view('users_admin', [
+      'users_admin' => $users_admin, 
+      ]);
   }
 
   public function btn_skill()
