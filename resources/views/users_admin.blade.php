@@ -9,18 +9,32 @@
 </head>
 <body>
 <h1> Utilisateurs </h1>
-
 <table>
-
-  <ul>
-  @foreach ($users_admin as $user)
-      <li> {{ $user -> id }} </li>
-      <li> {{ $user -> name }} </li>
-      <li> {{ $user -> email }} </li> <br>
-  @endforeach
-  </ul>
- 
-</table> 
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>email</td>
+            <td>competences</td>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach ($users as $user)
+            <tr>
+                <th> {{ $user -> id }} </th>
+                <td> {{ $user -> name }} </td>
+                <td> {{ $user -> email }} </td>
+                <td>
+                    @foreach ($user->skills as $skill)
+                        {{ $skill -> name }}  {{ $skill->pivot -> level }}
+                    @endforeach
+                </td>
+            </tr>
+            @endforeach
+        
+    </tbody>
+</table>
 
 </body>
 </html>

@@ -11,26 +11,30 @@
 <h1> Utilisateurs </h1>
 
 <table>
-  <tr>
-      <th>id</th> 
-      <th>name</th>
-      <th>email</th>
-      <th>skills</th>
-      <th>level</th>
-  </tr>
-  <tr>
-      <td> {{ $users -> id }} </td>
-      <td> {{ $users -> name }} </td>
-      <td> {{ $users -> email }} </td>
-  
-    @foreach ($users->skills as $skill)
-      <td> {{ $skill -> name }} </td>
-      <td> {{ $skill->pivot -> level }}  </td>
-    @endforeach
-      <br>
-  </tr>
- 
-</table> 
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>email</td>
+            <td>competences</td>
+        </tr>
+    </thead>
+    <tbody>    
+            <tr>
+                <th> {{ $users -> id }} </th>
+                <td> {{ $users -> name }} </td>
+                <td> {{ $users -> email }} </td>
+                <td>
+                    @foreach ($users->skills as $skill)
+                        {{ $skill -> name }}  {{ $skill->pivot -> level }}
+                    @endforeach
+                </td>
+            </tr>
+            
+        
+    </tbody>
+</table>
+
 
 <a href="{{ route('skill_user') }}">Ajouter une Compétence</a>
 </body>

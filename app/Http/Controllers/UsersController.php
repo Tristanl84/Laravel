@@ -24,7 +24,7 @@ class UsersController extends Controller
   {
     $users_admin = User::all();
     return view('users_admin', [
-      'users_admin' => $users_admin, 
+      'users'=> $users_admin, 
       ]);
   }
 
@@ -32,6 +32,14 @@ class UsersController extends Controller
     {
       $skills = Skill::all();
       return view('skills', [
+        'skills' => $skills,
+       ]);
+        
+    }
+  public function btn_skill_admin()
+    {
+      $skills = Skill::all();
+      return view('skills_admin', [
         'skills' => $skills,
        ]);
         

@@ -42,6 +42,8 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
 Route::match(['get', 'post'], '/adminOnlyPage/', 'HomeController@admin');
 Route::get('/adminOnlyPage','UsersController@afficher_users')-> name('current_users_admin');
+Route::get('/skill_user_admin', 'UsersController@btn_skill_admin')->name('skill_user_admin');
+
 });
 
 Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function()
