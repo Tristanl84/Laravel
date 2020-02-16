@@ -88,15 +88,14 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class=”form-group”>
-                                <label for="type" class= "col-md-4 col-form-label text-md-right"> User Type:</label>
-                                    <div class="col-md-6">
-                                        <select class="form-control" name="type" id="type">
-                                            <option value="admin">Admin</option>
-                                            <option value="member">Member</option>
-                                        </select>
-                                    </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('User Type:') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="type" id="type">
+                                    <option value="admin">Admin</option>
+                                    <option value="member">Member</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row mb-0">

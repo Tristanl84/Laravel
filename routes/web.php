@@ -51,3 +51,8 @@ Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function(
 Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
 Route::get('/memberOnlyPage','UsersController@afficher')-> name('current_users_member');
 });
+
+Route::resource('users', 'UsersController')->except([
+    'show', 'idex',
+])->middleware('can:manage');
+Route::resource('users', 'UsersController')->only(['show']);
